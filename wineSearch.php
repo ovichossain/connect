@@ -31,6 +31,6 @@ if(isset ($_POST['WineName']) && $_POST['WineName'] != ""){
 <input type="submit" name="searchButton" />
 </form>
 <br />
-<?php echo $serachResult; ?>
+<?php echo $searchResult; ?>
 </body>
 </html>
