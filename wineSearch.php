@@ -1,7 +1,7 @@
 <?php
 $searchResult = "";
 if(isset ($_POST['WineName']) && $_POST['WineName'] != ""){
-          $WineName = preg_replace('#[^a-z 0-9]#i','',$_POST['WineName']);
+          $WineName = preg_replace('#[^a-z]#i','',$_POST['WineName']);
           $sqlCommand = "SELECT wine_name From wine WHERE wine_name LIKE '%$WineName%'";
           
           include_once("connect.php");//requesting to open the database
