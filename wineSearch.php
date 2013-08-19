@@ -1,20 +1,22 @@
 <?php
 $searchResult = "";
-if(isset (($_POST['WineName']) && $_POST['WineName'] != "") or ($_POST['winery']) && $_POST['winery'] != "")){
+//or ($_POST['winery']) && $_POST['winery'] != "")
+
+if(isset ($_POST['WineName']) && $_POST['WineName'] != ""){
           $WineName = preg_replace('#[^a-z]#i','',$_POST['WineName']);
-          $winery = preg_replace('#[^a-z]#i','',$_POST['winery']);
-          $sqlCommand = "(SELECT wine_name From wine WHERE wine_name LIKE '%$WineName%')UNION
-          (SELECT winery_name From winery WHERE winery_name LIKE '%$winery%')";
+          //$winery = preg_replace('#[^a-z]#i','',$_POST['winery']);
+          $sqlCommand = "(SELECT wine_name From wine WHERE wine_name LIKE '%$WineName%')";
+          //UNION(SELECT winery_name From winery WHERE winery_name LIKE '%$winery%')";
           
           include_once("connect.php");//requesting to open the database
           $query = mysql_query($sqlCommand) or die(mysql_error());
           $count = mysql_num_rows($query);
           if($count > 1){
-            $searchResult .= "$count results for $WineName, $winery $sqlCommand";
+            $searchResult .= "$count results for $WineName, $sqlCommand";
             while($row = mysql_fetch_array($query)){
               $wName = $row["wine_name"];
-              $Winery = $row["winery_name"];
-              $searchResult .= "Wine Name: $wName Winery Name: $Winery<br />";
+              //$Winery = $row["winery_name"];
+              $searchResult .= "Wine Name: $wName <br />";
             }//close while
           }else { $searchResults = "0 results for $WineName $sqlCommand";
            }
