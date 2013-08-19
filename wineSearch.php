@@ -4,7 +4,7 @@ if(isset (($_POST['WineName']) && $_POST['WineName'] != "") or ($_POST['winery']
           $WineName = preg_replace('#[^a-z]#i','',$_POST['WineName']);
           $winery = preg_replace('#[^a-z]#i','',$_POST['winery']);
           $sqlCommand = "(SELECT wine_name From wine WHERE wine_name LIKE '%$WineName%')UNION
-          (SELECT winery_name From winery WHERE winery_name LIKE '%$WineName%')";
+          (SELECT winery_name From winery WHERE winery_name LIKE '%$winery%')";
           
           include_once("connect.php");//requesting to open the database
           $query = mysql_query($sqlCommand) or die(mysql_error());
