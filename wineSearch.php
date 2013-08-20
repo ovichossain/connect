@@ -34,11 +34,10 @@ $searchResult = "";
               $searchResult .= "Wine Name: $wName, V: $variety, Y: $year, WN: $winery_name, R: $region, C: $cost, S: $stock, O: $ordered<br />";
             }//close while
           }else { $searchResults = "0 results for $WineName $sqlCommand";
-           }
-          
-//}
+ }
           
 ?>
+
 <html>
 <head>
 <title>Wine Search Directory</title>
