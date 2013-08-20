@@ -17,7 +17,7 @@ $searchResult = "";
           if(!empty($str)) $str = "and ".$str;
           
           include_once("connect.php");//requesting to open the database
-          $query = mysql_query("select * from WineSearchView where 1 $str") or die(mysql_error());
+          $query = mysql_query("select *from WineSearchView where 1 $str") or die(mysql_error());
           $count = mysql_num_rows($query);
           if($count > 1){
             $searchResult .= "$count results for $WineName";
