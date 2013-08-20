@@ -3,15 +3,15 @@ $searchResult = "";
 //or ($_POST['winery']) && $_POST['winery'] != "")
 
 //if(isset ($_POST['WineName']) && $_POST['WineName'] != ""){
-          //$WineName = preg_replace('#[^a-z]#i','',$_POST['WineName']);
-          //$winery = preg_replace('#[^a-z]#i','',$_POST['winery']);
+          $WineName = preg_replace('#[^a-z]#i','',$_POST['WineName']);
+          $winery = preg_replace('#[^a-z]#i','',$_POST['winery']);
           //$sqlCommand = "(SELECT wine_name From wine WHERE wine_name LIKE '%$WineName%')";
           //UNION(SELECT winery_name From winery WHERE winery_name LIKE '%$winery%')";
           $arr = new array();
           if(!empty($_POST['WineName']))
-          $arr[] = "wine_name LIKE '".$_POST['WineName']."'";
+          $arr[] = "wine_name LIKE '%$WineName'";
           if(!empty($_POST['winery']))
-          $arr[] = "winery_name LIKE '".$_POST['winery']."'";
+          $arr[] = "winery_name LIKE '%$winery";
           
           $str = impode("and", $arr);
           if(!empty($str)) $str = "and ".$str;
