@@ -7,7 +7,7 @@ $searchResult = "";
           $winery = preg_replace('#[^a-z]#i','',$_POST['winery']);
           //$sqlCommand = "(SELECT wine_name From wine WHERE wine_name LIKE '%$WineName%')";
           //UNION(SELECT winery_name From winery WHERE winery_name LIKE '%$winery%')";
-          $arr = new array();
+          $arr = array();
           if(!empty($_POST['WineName']))
           $arr[] = "wine_name LIKE '%$WineName'";
           if(!empty($_POST['winery']))
