@@ -11,7 +11,7 @@ $searchResult = "";
           if(!empty($_POST['WineName']))
           $arr[] = "wine_name LIKE '%$WineName'";
           if(!empty($_POST['winery']))
-          $arr[] = "winery_name LIKE '%$winery";
+          $arr[] = "winery_name LIKE '%$winery'";
           
           $str = implode("and", $arr);
           if(!empty($str)) $str = "and ".$str;
