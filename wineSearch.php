@@ -13,7 +13,7 @@ $searchResult = "";
           if(!empty($_POST['winery']))
           $arr[] = "winery_name LIKE '%$winery";
           
-          $str = impode("and", $arr);
+          $str = implode("and", $arr);
           if(!empty($str)) $str = "and ".$str;
           
           include_once("connect.php");//requesting to open the database
